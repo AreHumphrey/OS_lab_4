@@ -1,0 +1,21 @@
+﻿build/
+_build/
+*build*/
+
+# Log files
+logs/
+*.log
+
+# Compiled binaries
+*.exe
+*.out
+*.dll
+*.so
+
+# IDE files
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

@@ -1,0 +1,40 @@
+#pragma once
+
+#include <cstddef>
+
+#include "common.h"
+
+namespace lab4 {
+
+// Одно измерение температуры
+struct Sample {
+    TimePoint ts;      // Временная метка
+    double value = 0.0; // Температура в градусах Цельсия
+};
+
+// Аккумулятор для вычисления среднего
+struct Accum {
+    double sum = 0.0;
+    std::size_t count = 0;
+    
+    void add(double v) { 
+        sum += v; 
+        ++count; 
+    }
+    
+    double avg() const { 
+        return count ? sum / static_cast<double>(count) : 0.0; 
+    }
+    
+    void reset() { 
+        sum = 0.0; 
+        count = 0; 
+    }
+};
+
+// Вспомогательные функции для работы со временем
+int hour_of(const TimePoint& tp);
+int day_of_year(const TimePoint& tp);
+int year_of(const TimePoint& tp);
+
+}  // namespace lab4
