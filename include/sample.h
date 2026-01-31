@@ -6,13 +6,12 @@
 
 namespace lab4 {
 
-// Одно измерение температуры
 struct Sample {
-    TimePoint ts;      // Временная метка
-    double value = 0.0; // Температура в градусах Цельсия
+    TimePoint ts;     
+    double value = 0.0;
 };
 
-// Аккумулятор для вычисления среднего
+
 struct Accum {
     double sum = 0.0;
     std::size_t count = 0;
@@ -32,7 +31,7 @@ struct Accum {
     }
 };
 
-// Вспомогательные функции для работы со временем
+
 int hour_of(const TimePoint& tp);
 int day_of_year(const TimePoint& tp);
 int year_of(const TimePoint& tp);
