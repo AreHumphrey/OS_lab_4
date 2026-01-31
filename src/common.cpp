@@ -45,7 +45,7 @@ std::string iso_time(const TimePoint& tp) {
 }
 
 std::string data_dir() {
-    // Ищем корень проекта: поднимаемся вверх от исполняемого файла
+  
     fs::path exe_path;
 #ifdef _WIN32
 
@@ -65,7 +65,7 @@ std::string data_dir() {
 #endif
 
 
-    // Поднимаемся вверх до папки с CMakeLists.txt (корень проекта)
+   
     fs::path project_root = exe_path.parent_path();
     int attempts = 0;
     while (attempts < 5 && !fs::exists(project_root / "CMakeLists.txt")) {
@@ -74,11 +74,10 @@ std::string data_dir() {
     }
     
     if (!fs::exists(project_root / "CMakeLists.txt")) {
-        // Если не нашли — используем текущую директорию
+   
         project_root = fs::current_path();
     }
     
-    // Создаём папку logs в корне проекта
     fs::path logs_dir = project_root / "logs";
     std::error_code ec;
     fs::create_directories(logs_dir, ec);
